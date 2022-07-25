@@ -28,4 +28,4 @@ app.use("/api/v1/setData", require("./routes/blogRoutes"));
 
 app.use(errorHandler);
 
-app.listen(port, () => console.log(`server listening on ${port}`));
+app.listen(port, () => console.log(`Server listening on port ${port}`));

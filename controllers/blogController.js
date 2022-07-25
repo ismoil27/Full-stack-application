@@ -3,7 +3,6 @@ const db = require("../config/db");
 // Get all blogs
 const getBlogs = (req, res) => {
   //  res.status(200).json({ message: "All blogs" });
-
   const sqlGet = "SELECT * FROM blogs";
   db.query(sqlGet, (err, result) => {
     res.send(result);
