@@ -2,7 +2,7 @@
 
 
 
-Before run the project, you should use your own databas and create a file with .env name
+Before you run the project, you should use your own database and create a file with .env name
 
 Inside .env file { 
 
@@ -22,6 +22,9 @@ DB_PASSWORD=1111111!
 
 
 } until here
+
+
+
 
 
 
