@@ -1,5 +1,5 @@
 const express = require("express");
-const dotenv = require("dotenv").config();
+// const dotenv = require("dotenv").config();
 const db = require("./config/db");
 
 // const { errorHandler } = require("./middleware/errorMiddleware");
@@ -86,6 +86,10 @@ app.delete("/api/blogs/:id", (req, res) => {
     }
   });
   res.status(200).json({ message: `Blog deleted with id:  ${req.params.id}` });
+});
+
+app.get("/", (req, res) => {
+  res.send("Hello, world!");
 });
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));
