@@ -8,14 +8,12 @@ const getBlogs = (req, res) => {
   db.query(sqlGet, (err, result) => {
     res.send(result);
   });
-  console.log("step2 after getting all blogs");
+  console.log(`${sqlGet}`);
 };
 
 // Get single blog
 const getBlog = (req, res) => {
   // res.status(200).json({ message: `Update blog ${req.params.id}` });
-
-  console.log("step1");
 
   const { id } = req.params;
   const sqlGetSingle = "SELECT * FROM blogs WHERE id = ?";
@@ -25,8 +23,7 @@ const getBlog = (req, res) => {
     }
     res.send(result);
   });
-
-  console.log("step2");
+  console.log(`${sqlGetSingle}`);
 };
 
 //  Set blog
