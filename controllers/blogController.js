@@ -3,15 +3,20 @@ const db = require("../config/db");
 // Get all blogs
 const getBlogs = (req, res) => {
   //  res.status(200).json({ message: "All blogs" });
+  console.log("step1");
   const sqlGet = "SELECT * FROM blogs";
   db.query(sqlGet, (err, result) => {
     res.send(result);
   });
+  console.log("step2 after getting all blogs");
 };
 
 // Get single blog
 const getBlog = (req, res) => {
   // res.status(200).json({ message: `Update blog ${req.params.id}` });
+
+  console.log("step1");
+
   const { id } = req.params;
   const sqlGetSingle = "SELECT * FROM blogs WHERE id = ?";
   db.query(sqlGetSingle, id, (err, result) => {
@@ -20,6 +25,8 @@ const getBlog = (req, res) => {
     }
     res.send(result);
   });
+
+  console.log("step2");
 };
 
 //  Set blog
