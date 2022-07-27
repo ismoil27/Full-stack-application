@@ -17,11 +17,7 @@ app.use("/api/v1/setData", require("./routes/blogRoutes"));
 //app.use("/", require("./routes/blogRoutes"));
 
 app.get("/", (req, res) => {
-  try {
-    res.send("Hello World");
-  } catch (err) {
-    console.log(err);
-  }
+  res.send("Hello World");
 });
 
 app.use(errorHandler);
