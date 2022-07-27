@@ -22,6 +22,7 @@ const getBlog = (req, res) => {
       console.log(err);
     }
     res.send(result);
+    console.log(result);
   });
   console.log(`${sqlGetSingle}`);
 };
