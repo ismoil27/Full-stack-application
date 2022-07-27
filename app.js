@@ -12,11 +12,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Routes
-app.use("/api/blogs", require("./routes/blogRoutes"));
+app.use("", require("./routes/blogRoutes"));
 app.use("/api/v1/setData", require("./routes/blogRoutes"));
 //app.use("/", require("./routes/blogRoutes"));
 
-app.get("/api/vlogs", (req, res) => {
+app.get("/", (req, res) => {
   try {
     res.send("Hello World");
   } catch (err) {
