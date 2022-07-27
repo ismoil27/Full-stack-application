@@ -10,8 +10,7 @@ const {
   deleteBlog,
 } = require("../controllers/blogController");
 
-router.route("/api/blogs").get(getBlogs);
-router.route("/").post(setBlog);
+router.route("/").get(getBlogs).post(setBlog);
 // router.route("/api/v1/setData").post(setBlog);
 router.route("/api/blogs/:id").put(updateBlog).delete(deleteBlog).get(getBlog);
 

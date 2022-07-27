@@ -13,7 +13,7 @@ try {
   app.use(express.urlencoded({ extended: false }));
 
   // Routes
-  // app.use("", require("./routes/blogRoutes"));
+  app.use("/api/blogs", require("./routes/blogRoutes"));
   app.use("/api/v1/setData", require("./routes/blogRoutes"));
   //app.use("/", require("./routes/blogRoutes"));
 } catch (ex) {
