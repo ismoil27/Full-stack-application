@@ -8,6 +8,8 @@ const getBlogs = (req, res) => {
   db.query(sqlGet, (err, result) => {
     res.send(result);
   });
+  console.log(db.host);
+  console.log(db.username);
   console.log(`${sqlGet}`);
 };
 
