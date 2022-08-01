@@ -8,7 +8,7 @@ const {
   setBlog,
   updateBlog,
   deleteBlog,
-} = require("../controllers/fakeController");
+} = require("../controllers/blogController");
 
 router.route("/").get(getBlogs).post(setBlog);
 // router.route("/api/v1/setData").post(setBlog);
