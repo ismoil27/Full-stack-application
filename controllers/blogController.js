@@ -3,13 +3,11 @@ const db = require("../config/db");
 // Get all blogs
 const getBlogs = (req, res) => {
   //  res.status(200).json({ message: "All blogs" });
-  console.log("step1");
-  const sqlGet = "SELECT * FROM vlogs";
+
+  const sqlGet = "SELECT * FROM blogs";
   db.query(sqlGet, (err, result) => {
     res.send(result);
   });
-
-  console.log(`${sqlGet}`);
 };
 
 // Get single blog
