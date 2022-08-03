@@ -7,6 +7,7 @@ const getBlogs = (req, res) => {
   const sqlGet = "SELECT * FROM blogs";
   db.query(sqlGet, (err, result) => {
     res.send(result);
+    console.log(result);
   });
 };
 
