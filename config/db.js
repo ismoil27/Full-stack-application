@@ -1,4 +1,4 @@
-const mysql = require("mysql2");
+const mysql = require("mysql");
 const fs = require("fs");
 
 const contents = fs.readFileSync("./config/db-config.json", "utf8");
