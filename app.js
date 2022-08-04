@@ -15,7 +15,7 @@ try {
   // Routes
   app.use("/api/blogs", require("./routes/blogRoutes"));
   app.use("/api/v1/setData", require("./routes/blogRoutes"));
-  // app.use("/", require("./routes/blogRoutes"));
+  app.use("/", require("./routes/blogRoutes"));
 } catch (err) {
   console.log(err.message);
 }
