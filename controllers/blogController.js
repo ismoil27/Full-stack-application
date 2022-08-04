@@ -6,7 +6,7 @@ const getBlogs = (req, res) => {
 
   const sqlGet = "SELECT * FROM blogs";
   db.query(sqlGet, (err, result) => {
-    res.send(result);
+    res.status(200).send(result);
   });
 };
 
@@ -20,10 +20,9 @@ const getBlog = (req, res) => {
     if (err) {
       console.log(err);
     }
-    res.send(result);
+    res.status(200).send(result);
     console.log(result);
   });
-  console.log(`${sqlGetSingle}`);
 };
 
 //  Set blog
