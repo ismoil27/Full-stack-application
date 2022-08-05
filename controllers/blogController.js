@@ -21,7 +21,6 @@ const getBlog = (req, res) => {
       console.log(err);
     }
     res.status(200).send(result);
-    console.log(result);
   });
 };
 
