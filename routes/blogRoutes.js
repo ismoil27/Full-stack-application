@@ -12,6 +12,6 @@ const {
 
 router.route("/").get(getBlogs).post(setBlog);
 // router.route("/api/v1/setData").post(setBlog);
-router.route("/api/blogs/:id").put(updateBlog).delete(deleteBlog).get(getBlog);
+router.route("/:id").put(updateBlog).delete(deleteBlog).get(getBlog);
 
 module.exports = router;

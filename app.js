@@ -1,11 +1,18 @@
 const express = require("express");
 const dotenv = require("dotenv").config();
 const db = require("./config/db");
+const cors = require("cors");
 
 const { errorHandler } = require("./middleware/errorMiddleware");
 const port = process.env.PORT || 5000;
 
 const app = express();
+
+app.use(
+  cors({
+    origin: "http://127.0.0.1:1880",
+  })
+);
 
 try {
   app.use(express.json());
