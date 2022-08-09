@@ -65,14 +65,6 @@ const deleteBlog = (req, res) => {
     }
   });
   res.status(200).json({ message: `Blog deleted with id:  ${req.params.id}` });
-
-  // if (req.params.id !== id) {
-  //   console.log(`This user is not exist with id ${req.params.id}`);
-  // } else {
-  //   res
-  //     .status(200)
-  //     .json({ message: `Blog deleted with id:  ${req.params.id}` });
-  // }
 };
 
 module.exports = {
