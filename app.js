@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv").config();
 const db = require("./config/db");
 const cors = require("cors");
+const mysql = require("mysql");
 
 const { errorHandler } = require("./middleware/errorMiddleware");
 const port = process.env.PORT || 5000;
@@ -15,18 +16,14 @@ app.use(
   })
 );
 
-try {
-  app.use(express.json());
+app.use(express.json());
 
-  app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
-  // Routes
-  app.use("/api/blogs", require("./routes/blogRoutes"));
-  app.use("/api/v1/setData", require("./routes/blogRoutes"));
-  app.use("/", require("./routes/blogRoutes"));
-} catch (err) {
-  console.log(err.message);
-}
+// Routes
+app.use("/api/blogs", require("./routes/blogRoutes"));
+app.use("/api/v1/setData", require("./routes/blogRoutes"));
+app.use("/", require("./routes/blogRoutes"));
 
 app.use(errorHandler);
 
