@@ -100,7 +100,7 @@ router.post("/login", (req, res) => {
 //   } )
 // })
 
-router.get("/get", (req, res) => {
+router.get("/get", auth.authenticateToken, checkRole.checkRole, (req, res) => {
   const query =
     'select id, name, email, contactNumber, status from user where role="user"';
   connection.query(query, (err, result) => {
@@ -112,7 +112,7 @@ router.get("/get", (req, res) => {
   });
 });
 
-router.patch("/update", (req, res) => {
+router.patch("/update", auth.authenticateToken, (req, res) => {
   const user = req.body;
   const query = "update user set status=? where id=?";
   connection.query(query, [user.status, user.id], (err, result) => {
@@ -127,7 +127,7 @@ router.patch("/update", (req, res) => {
   });
 });
 
-router.get("/checkToken", (req, res) => {
+router.get("/checkToken", auth.authenticateToken, (req, res) => {
   return res.status(200).json({ message: "true" });
 });
 
