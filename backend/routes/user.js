@@ -128,4 +128,6 @@ router.get("/checkToken", (req, res) => {
   return res.status(200).json({ message: "true" });
 });
 
+// router.post("/changePassword", (req, res) => {});
+
 module.exports = router;
