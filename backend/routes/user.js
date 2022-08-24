@@ -112,25 +112,58 @@ router.get("/get", auth.authenticateToken, checkRole.checkRole, (req, res) => {
   });
 });
 
-router.patch("/update", auth.authenticateToken, (req, res) => {
-  const user = req.body;
-  const query = "update user set status=? where id=?";
-  connection.query(query, [user.status, user.id], (err, result) => {
-    if (!err) {
-      if (result.affectedRows === 0) {
-        return res.status(404).json({ message: `User id does not exist` });
+router.patch(
+  "/update",
+  auth.authenticateToken,
+  checkRole.checkRole,
+  (req, res) => {
+    const user = req.body;
+    const query = "update user set status=? where id=?";
+    connection.query(query, [user.status, user.id], (err, result) => {
+      if (!err) {
+        if (result.affectedRows === 0) {
+          return res.status(404).json({ message: `User id does not exist` });
+        }
+        return res.status(200).json({ message: `User updated successfully` });
+      } else {
+        return res.status(500).json(err);
       }
-      return res.status(200).json({ message: `User updated successfully` });
-    } else {
-      return res.status(500).json(err);
-    }
-  });
-});
+    });
+  }
+);
 
 router.get("/checkToken", auth.authenticateToken, (req, res) => {
   return res.status(200).json({ message: "true" });
 });
 
-// router.post("/changePassword", (req, res) => {});
+router.post("/changePassword", (req, res) => {
+  const user = req.body;
+  const email = res.locals.email;
+  const query = "select * from user where email=? and password=?";
+  connection.query(query, [email, user.oldPassword], (err, result) => {
+    if (!err) {
+      if (result.length <= 0) {
+        return res.status(400).json({ message: `Incorrect old password` });
+      } else if (result[0].password === user.oldPassword) {
+        const query = "update user set password=? where email=?";
+        connection.query(query, [user.newPassword, email], (err, result) => {
+          if (!err) {
+            return res
+              .status(200)
+              .json({ message: `Password changed successfully` });
+          } else {
+            return res.status(500).json(err);
+          }
+        });
+      } else {
+        return res
+          .status(400)
+          .json({ message: `Something went wrong. Please try again` });
+      }
+    } else {
+      return res.status(500).json(err);
+    }
+  });
+});
 
 module.exports = router;
