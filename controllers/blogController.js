@@ -74,3 +74,11 @@ module.exports = {
   updateBlog,
   deleteBlog,
 };
+
+// CREATE TABLE `devserverdb`.`blogs` (
+//   `id` INT NOT NULL AUTO_INCREMENT,
+//   `title` VARCHAR(255) NOT NULL,
+//   `snippet` VARCHAR(255) NOT NULL,
+//   `body` TEXT NOT NULL,
+//   PRIMARY KEY (`id`),
+//   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);

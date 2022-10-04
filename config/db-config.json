@@ -1,8 +1,8 @@
 {
-  "host": "119.196.91.155",
-  "port": "43306",
+  "host": "14.51.17.64",
+  "port": "33306",
   "user": "root",
-  "password": "xpavm007",
-  "database": "newdb",
+  "password": "tmakxmvmfh0802",
+  "database": "devserverdb",
   "connectionLimit": 10
 }
