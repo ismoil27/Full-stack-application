@@ -1,8 +1,10 @@
 const express = require("express");
-const dotenv = require("dotenv").config();
-const db = require("./config/db");
+// const dotenv = require("dotenv").config();
+// const db = require("./config/db");
 const cors = require("cors");
-const mysql = require("mysql");
+// const mysql = require("mysql");
+
+const cron = require("node-cron");
 
 const { errorHandler } = require("./middleware/errorMiddleware");
 const port = process.env.PORT || 5000;
@@ -24,6 +26,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api/blogs", require("./routes/blogRoutes"));
 app.use("/api/v1/setData", require("./routes/blogRoutes"));
 app.use("/", require("./routes/blogRoutes"));
+
+app.use((req, res, next) => {
+  const userAgentsRequiringRawBody = [
+    "(http://211.225.14.76:8080/server/getChatUsersList)",
+  ];
+
+  if (userAgentsRequiringRawBody.includes(req.headers["user-agent"])) {
+    return bodyParser.raw({ type: "*/*", limit: "50mb" })(req, res, next);
+  }
+
+  return bodyParser.json({ limit: "50mb" })(req, res, next);
+});
 
 app.use(errorHandler);
 
