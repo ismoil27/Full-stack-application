@@ -12,8 +12,6 @@ const getBlogs = (req, res) => {
 
 // Get single blog
 const getBlog = (req, res) => {
-  // res.status(200).json({ message: `Update blog ${req.params.id}` });
-
   const { id } = req.params;
   const sqlGetSingle = "SELECT * FROM blogs WHERE id = ?";
   db.query(sqlGetSingle, id, (err, result) => {
