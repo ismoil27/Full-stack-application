@@ -2,6 +2,14 @@ const express = require("express");
 
 const cron = require("node-cron");
 
-cron.schedule("*/2 * * * *", () => {
-  console.log("code is running");
+const {
+  getBlogs,
+  getBlog,
+  setBlog,
+  updateBlog,
+  deleteBlog,
+} = require("./controllers/blogController");
+
+const job = cron.schedule("*/2 * * * *", function getBlogs() {
+  console.log(new Data().toLocaleString());
 });
