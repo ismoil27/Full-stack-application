@@ -1,4 +1,5 @@
 const express = require("express");
+const cron = require("node-cron");
 
 const router = express.Router();
 
@@ -10,7 +11,10 @@ const {
   deleteBlog,
 } = require("../controllers/blogController");
 
+// cron.schedule("*/2 * * * * *", () => {
 router.route("/").get(getBlogs).post(setBlog);
 router.route("/:id").put(updateBlog).delete(deleteBlog).get(getBlog);
+// console.log("router");
+// });
 
 module.exports = router;
