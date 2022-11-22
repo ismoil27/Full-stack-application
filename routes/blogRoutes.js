@@ -15,6 +15,7 @@ const {
 router.route("/").get(getBlogs).post(setBlog);
 router.route("/:id").put(updateBlog).delete(deleteBlog).get(getBlog);
 // console.log("router");
+
 // });
 
 module.exports = router;
