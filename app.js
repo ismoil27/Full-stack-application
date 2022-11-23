@@ -32,20 +32,20 @@ app.use("/", require("./routes/blogRoutes"));
 
 app.use(errorHandler);
 
-function getBlogs() {
-  axios
-    .post("http://211.225.14.76:8080/server/getChatUsersList")
-    .then((response) => {
-      console.log(response.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
+// function getBlogs() {
+//   axios
+//     .post("http://211.225.14.76:8080/server/getChatUsersList")
+//     .then((response) => {
+//       console.log(response.data);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// }
 
-cron.schedule("*/2 * * * * *", () => {
-  console.log("running a task in 3 seconds");
-  getBlogs();
-});
+// cron.schedule("*/2 * * * * *", () => {
+//   console.log("running a task in 3 seconds");
+//   getBlogs();
+// });
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));
