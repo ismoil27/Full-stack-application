@@ -14,7 +14,6 @@ const {
 // cron.schedule("*/2 * * * * *", () => {
 router.route("/").get(getBlogs).post(setBlog);
 router.route("/:id").put(updateBlog).delete(deleteBlog).get(getBlog);
-// console.log("router");
 
 // });
 
