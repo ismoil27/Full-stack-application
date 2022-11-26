@@ -5,6 +5,7 @@ const db = require("../config/db");
 
 let data = fs.readFileSync(path.join("data", "blogs.json"), "utf-8");
 data = data ? JSON.parse(data) : [];
+
 // Get all blogs
 const getBlogs = (req, res) => {
   //  res.status(200).json({ message: "All blogs" });

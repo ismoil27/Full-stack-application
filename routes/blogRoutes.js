@@ -13,9 +13,8 @@ const {
 
 // cron.schedule("*/2 * * * * *", () => {
 router.route("/").get(getBlogs).post(setBlog);
-// router.route("/api/v1/setData").post(setBlog);
 router.route("/:id").put(updateBlog).delete(deleteBlog).get(getBlog);
-// console.log("router");
+
 // });
 
 module.exports = router;
