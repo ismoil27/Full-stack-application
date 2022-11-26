@@ -5,7 +5,7 @@ const cors = require("cors");
 const cron = require("node-cron");
 
 const { errorHandler } = require("./middleware/errorMiddleware");
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 
 const app = express();
 
