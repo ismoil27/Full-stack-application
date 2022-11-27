@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 
-const axios = require("axios");
+// const axios = require("axios");
 
 const cron = require("node-cron");
 
@@ -10,7 +10,7 @@ const cron = require("node-cron");
 // const cron = require("node-cron");
 
 const { errorHandler } = require("./middleware/errorMiddleware");
-const port = 5000;
+const port = process.env.PORT || 8080;
 
 const app = express();
 
