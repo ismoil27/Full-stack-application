@@ -10,11 +10,7 @@ const cron = require("node-cron");
 // const cron = require("node-cron");
 
 const { errorHandler } = require("./middleware/errorMiddleware");
-<<<<<<< HEAD
 const port = process.env.PORT || 8080;
-=======
-const port = 5000;
->>>>>>> ca3075d31c981ed05bb20477a20c89c867ac7a6a
 
 const app = express();
 
