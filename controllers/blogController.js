@@ -3,8 +3,8 @@ const path = require("path");
 
 const db = require("../config/db");
 
-let data = fs.readFileSync(path.join("data", "blogs.json"), "utf-8");
-data = data ? JSON.parse(data) : [];
+// let data = fs.readFileSync(path.join("data", "blogs.json"), "utf-8");
+// data = data ? JSON.parse(data) : [];
 
 // Get all blogs
 const getBlogs = (req, res) => {
@@ -39,12 +39,12 @@ const setBlog = (req, res) => {
     }
   });
 
-  let jsonData = {
-    id: data.length ? data.length + 1 : 1,
-    title,
-    snippet,
-    body,
-  };
+  // let jsonData = {
+  //   id: data.length ? data.length + 1 : 1,
+  //   title,
+  //   snippet,
+  //   body,
+  // };
 
   fs.writeFileSync(
     path.join("data", "blogs.json"),
